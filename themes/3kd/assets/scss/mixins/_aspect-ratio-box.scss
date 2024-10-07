@@ -1,0 +1,19 @@
+/**
+* Hack from https://css-tricks.com/aspect-ratio-boxes/
+**/
+@mixin aspect-ratio-box($ratio: 9/16) {
+  &::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: $ratio * 100%;
+  }
+
+  &::after { /* to clear float */
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

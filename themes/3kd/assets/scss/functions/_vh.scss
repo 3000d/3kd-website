@@ -1,0 +1,10 @@
+/**
+* Solution for glitch on mobile when using vh (address bar display/hide changes vh value)
+* https://chanind.github.io/javascript/2019/09/28/avoid-100vh-on-mobile-web.html
+* From comment: http://disq.us/p/24nigof
+*
+* --vh is defined in javascript based on window.innerHeight (see layout/_default/baseof.html)
+**/
+@function vh($quantity) {
+  @return calc(var(--vh, 1vh) * #{$quantity});
+}

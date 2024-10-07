@@ -1,0 +1,19 @@
+$font-family-text: 'Libre Franklin', sans-serif;
+$font-family-title: 'Dense Regular', sans-serif;
+
+/** Responsive **/
+$breakpoints: (
+        xs: 576px,
+        sm: 768px,
+        md: 992px,
+        lg: 1200px
+);
+
+$font-size-xs: .75rem;
+$font-size-sm: .875rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.285rem;
+
+// https://codepen.io/sosuke/pen/Pjoqqp
+$filter-pink: brightness(0) invert(19%) sepia(93%) saturate(7383%) hue-rotate(316deg) brightness(103%) contrast(105%);
+$filter-blue: brightness(0) invert(20%) sepia(70%) saturate(4404%) hue-rotate(252deg) brightness(71%) contrast(151%);

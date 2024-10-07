@@ -1,0 +1,25 @@
+{
+  "name": "liege-en-transition-initiatives",
+  "version": "1.0.0",
+  "description": "Liege en Transition: Initiatives is a platform that references places that support a more sustainable way of living in Liège.",
+  "main": "index.js",
+  "homepage": "https://liegetransition.be",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/liege-en-transition/initiatives.git"
+  },
+  "author": "Jonathan Berger",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://gitlab.com/liege-en-transition/initiatives/issues"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "autoprefixer": "^9.7.6",
+    "core-js": "^3.6.5",
+    "postcss-cli": "^7.1.1"
+  }
+}

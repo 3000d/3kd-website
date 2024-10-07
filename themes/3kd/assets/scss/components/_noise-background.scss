@@ -1,0 +1,19 @@
+.noise-background {
+  animation: noise .3s infinite;
+  // white noise generated with http://api.thumbr.it/whitenoise-361x370.png?background=1C1616&noise=ffffff&density=30&opacity=10
+  background: url("../img/whitenoise.jpg") repeat top left;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -2;
+}
+
+@keyframes noise {
+  @for $frame from 0 to 10 {
+    #{$frame * 10%} {
+      background-position: random(2000) + px random(2000)+px;
+    }
+  }
+}

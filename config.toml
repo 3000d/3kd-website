@@ -1,0 +1,26 @@
+baseURL = "https://3kd.be/"
+languageCode = "en-us"
+title = "3kd"
+description = "3kd - Technology for art and entertainment."
+theme = "3kd"
+MetaDataFormat = "toml"
+
+[params]
+title = "3kd"
+subtitle = "Technology for art and entertainment."
+description = "We are a small development studio based in Belgium focused on creating beautiful interactive experiences both in the physical and the digital world."
+images = ["images/cover.jpg"]
+
+[security]
+  enableInlineShortcodes = false
+
+  [security.exec]
+    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^git$', '^npx$', '^postcss$', '^tailwindcss$', 'babel']
+    osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\w+|(XDG_CONFIG_)?HOME|USERPROFILE|SSH_AUTH_SOCK|DISPLAY|LANG|SYSTEMDRIVE)$']
+
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$']
+
+  [security.http]
+    methods = ['(?i)GET|POST']
+    urls = ['.*']

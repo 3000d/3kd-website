@@ -1,0 +1,69 @@
+{{ define "body" }}
+{{/*    <div class="noise-background"></div>*/}}
+    <div id="background" class="background"></div>
+    <div class="loader" style="--progress: 0;"></div>
+
+    <header class="page-section header">
+        <h1 class="header__title logo">
+            <span class="logo__glitch logo__glitch--1"></span>
+            <span class="logo__glitch logo__glitch--2"></span>
+            <span class="logo__glitch logo__glitch--3"></span>
+            <span class="logo__glitch logo__glitch--4"></span>
+            <span class="logo__glitch logo__glitch--5"></span>
+            <span class="logo__main">{{ .Site.Title }}</span>
+        </h1>
+        <h2 class="header__subtitle">{{ .Site.Params.Subtitle }}</h2>
+        <p class="header__description">
+            {{ .Site.Params.Description }}
+        </p>
+        <div class="header__arrow">
+            {{- partial "svg/arrow.svg" -}}
+        </div>
+    </header>
+
+        {{ with .GetPage "services" }}
+            {{ range $index, $val := .Pages.ByParam "order" }}
+                {{ $image := "" }}
+                {{ with .Resources.GetMatch "cover*" }}
+                    {{ $image = .Fill "1280x812" }}
+                {{ end }}
+                <section id="section-{{ $index }}" class="page-section service service--{{ .Params.Order }}" data-cover="{{ $image.RelPermalink }}">
+                    <div class="container">
+                        <div class="service__content">
+                            <h3 class="service__title">
+                                <span class="service__title__number">
+                                    0{{ .Params.Order }}—
+                                </span>
+                                {{ .Title }}
+                            </h3>
+
+                            <div class="service__text">
+                                <!-- raw html -->
+                                {{ .Content }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            {{ end }}
+        {{ end }}
+
+    <footer class="page-section footer">
+        <p>
+            Drop us an email at
+            <a href="mailto:hello@3kd.be" title="Send us an email">hello@3kd.be</a>.
+        </p>
+    </footer>
+
+
+    {{- $js := resources.Get "js/main.js" | babel | minify -}}
+    <script src="{{ $js.Permalink }}"></script>
+    <script>
+      function setDocHeight() {
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight / 100}px`);
+      }
+
+      window.addEventListener('orientationchange', setDocHeight);
+      window.addEventListener('resize', setDocHeight);
+      setDocHeight();
+    </script>
+{{ end }}

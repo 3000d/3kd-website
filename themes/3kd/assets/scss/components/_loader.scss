@@ -1,0 +1,24 @@
+.loader {
+  display: none;
+
+  .has-js & {
+    background-color: white;
+    display: block;
+    height: 3px;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 5px;
+    transform: scaleX(calc(var(--progress)));
+    transform-origin: center left;
+    transition: .1s transform ease-out, opacity .1s;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .is-ready & {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

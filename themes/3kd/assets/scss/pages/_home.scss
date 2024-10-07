@@ -1,0 +1,243 @@
+.header {
+  padding-top: 50px;
+  text-align: center;
+
+  &__title {
+    @include hide-text;
+    margin: 0 auto 1.5rem;
+    transition: opacity .5s ease-out;
+    transition-delay: .2s;
+
+    @include respond-above(xs) {
+      margin-bottom: 2.5rem;
+    }
+
+    .has-js & {
+      opacity: 0;
+    }
+
+    .is-ready & {
+      opacity: 1;
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-family-title;
+    font-size: 36px;
+    font-weight: 100;
+    letter-spacing: 0.27em;
+    line-height: 1.2;
+    margin: 0 auto 1.5rem;
+    max-width: 90%;
+    text-align: center;
+    text-transform: uppercase;
+    transition: opacity .4s ease-out;
+    transition-delay: 1.2s;
+    word-break: break-word;
+
+    @include respond-above(sm) {
+      margin-bottom: 2.5rem;
+
+      @include respond-above(lg) {
+        font-size: 44px;
+      }
+    }
+
+    .has-js & {
+      opacity: 0;
+    }
+
+    .is-ready & {
+      opacity: 1;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    max-width: 470px;
+    opacity: .75;
+    padding-top: 1.5rem;
+    position: relative;
+    transition: opacity .4s ease-out;
+    transition-delay: 1.2s;
+    width: 90%;
+
+    @include respond-above(sm) {
+      opacity: 1;
+      padding-top: 0;
+    }
+
+    &:before {
+      @include respond-below(sm) {
+        background-color: white;
+        content: '';
+        height: 1px;
+        left: 50%;
+        margin-left: -25px;
+        position: absolute;
+        top: 0;
+        width: 50px;
+      }
+    }
+
+    .has-js & {
+      opacity: 0;
+    }
+
+    .is-ready & {
+      opacity: 1;
+    }
+  }
+
+  &__arrow {
+    margin-top: 50px;
+    transition: opacity .25s ease-out, transform .4s ease-out;
+    transition-delay: 1.6s;
+
+    @include respond-above(xs) {
+      margin-top: 100px;
+
+      @include respond-below(sm) {
+        display: none;
+      }
+    }
+
+    .has-js & {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    .is-ready & {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+.page-wrapper {
+  max-height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+//noinspection CssOverwrittenProperties
+.page-section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: vh(100);
+  opacity: var(--progress);
+  overflow: hidden;
+  padding: 2rem 0;
+  position: relative;
+  scroll-snap-align: center;
+}
+
+.service {
+  &__background {
+    bottom: 0;
+    display: flex;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+
+    @include respond-below(sm) {
+      opacity: .5;
+    }
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    a {
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  &__title {
+    font-family: $font-family-title;
+    font-size: 60px;
+    font-weight: normal;
+    letter-spacing: 16px;
+    line-height: 1.1;
+    margin: 0 0 1.5rem;
+    text-shadow: 0 2px 1px rgba(black, .5);
+    text-transform: uppercase;
+    word-break: break-word;
+
+    @include respond-above(xs) {
+      font-size: 70px;
+      word-break: unset;
+
+      @include respond-above(lg) {
+        font-size: 84px;
+      }
+    }
+
+    &__number {
+      display: block;
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    text-shadow: 0 2px 1px rgba(black, .5);
+  }
+
+  &--1 {
+    .service {
+      &__text {
+        max-width: 460px;
+      }
+    }
+  }
+
+  &--2 {
+    .service {
+      &__content {
+        @include respond-above(xs) {
+          //margin-bottom: 100px;
+          margin-left: 50%;
+          max-width: 460px;
+        }
+      }
+    }
+  }
+
+  &--3 {
+    .service {
+      &__text {
+        max-width: 460px;
+      }
+    }
+  }
+}
+
+.footer {
+  font-size: $font-size-lg;
+  text-align: center;
+
+  p {
+    margin-bottom: .3rem;
+  }
+
+  a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}

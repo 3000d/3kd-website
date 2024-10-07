@@ -1,0 +1,18 @@
+.container {
+  padding: 0 1rem;
+
+  @include respond-above(sm) {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+
+    @include respond-above(md) {
+      width: 940px;
+    }
+  }
+
+  &.container-sm {
+    max-width: 600px;
+  }
+}
